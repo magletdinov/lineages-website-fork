@@ -1,0 +1,3 @@
+git remote add upstream git@github.com:cov-lineages/lineages-website.git
+git pull upstream master
+git push
