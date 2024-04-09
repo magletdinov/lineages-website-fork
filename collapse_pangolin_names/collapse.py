@@ -1,9 +1,4 @@
 from pathlib import Path
-import pandas as pd
-import numpy as np
-import json, yaml
-import tqdm
-import matplotlib.pyplot as plt
 from argparse import ArgumentParser
 
 roots = {"B": "B",
