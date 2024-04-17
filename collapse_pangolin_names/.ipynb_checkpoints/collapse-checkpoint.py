@@ -52,7 +52,7 @@ roots = {#Pangolin
 
 
 def open_md(strain):
-    to_file = [i for i in LINEAGES.glob(f"**/lineage_{strain}.md")]
+    to_file = [i for i in PHYLO.glob(f"**/lineage_{strain}.md")]
     if len(to_file) == 0:
         #print(f'Линия {strain} неизвестна')
         return 0
@@ -91,13 +91,15 @@ def final_linage_name(name):
 parser = ArgumentParser()
 
 parser.add_argument("-i", "--input", dest="INPUT", help="Pangolin lineage", required=True)
+parser.add_argument("-p", "--phyloDir", dest="PHYLO", help="Path to 'lineages' directory", required=True)
  
 args = parser.parse_args()
 
 INPUT = args.INPUT
+PHYLO = args.PHYLO
 
 ROOT = Path().cwd()
-LINEAGES = ROOT.joinpath("../lineages/").resolve()
+PHYLO = Path(PHYLO).resolve()
 
 collapsed_name = final_linage_name(INPUT)
 print(collapsed_name)
