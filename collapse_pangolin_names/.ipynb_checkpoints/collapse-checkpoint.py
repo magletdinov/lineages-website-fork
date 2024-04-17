@@ -1,7 +1,8 @@
 from pathlib import Path
 from argparse import ArgumentParser
 
-roots = {"B": "B",
+roots = {#Pangolin
+        "B": "B",
         "A": "A",
         "B.1": "B.1",
         "B.1.617.2": "B.1.617.2 (Delta)",
@@ -38,6 +39,15 @@ roots = {"B": "B",
         "EG.5": "EG.5 (Omicron)",
         "BA.2.86": "BA.2.86 (Omicron)",
         "JN.1": "JN.1 (Omicron)",
+        #V-TRACE 
+        "B.1.1.523": "B.1.1.523 (Omicron)",
+        "AT.1": "AT.1",
+        "BA.2.10.1": "BA.2.10.1 (Omicron)",
+        "BA.4/BA.5": "BA.4/BA.5 (Omicron)",
+        "XBB.1.1": "XBB.1.1 (Omicron)",
+        "XBB.1.5/XBB.1.9.1": "XBB.1.5/XBB.1.9.1 (Omicron)",
+        "EG.5.1": "EG.5.1 (Omicron)",
+
         "Other": "Other"}
 
 
@@ -70,6 +80,7 @@ def find_strain_root(strain):
         return strain
     
 def final_linage_name(name):
+    name = name.split(" ")[0]
     res = find_strain_root(name)
     if res in roots:
         res = roots[res]
